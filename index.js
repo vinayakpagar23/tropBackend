@@ -14,6 +14,10 @@ app.use(express.json());
 
 
 console.log(data)
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    next();
+  });
 app.get("/",(req,resp)=>{
     resp.send("Api is Running successfully");
 })
